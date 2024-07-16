@@ -149,6 +149,48 @@ body main.grade section.result img {
   width: 700px;
   height: 300px;
 }
+body main.grade section.result div.button {
+  padding: 0rem 2rem 1rem 2rem;
+}
+body main.grade section.result div.button button.button-7 {
+  background-color: rgb(134, 226, 226);
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px 0.8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+body main.grade section.result div.button button.button-7:hover, body main.grade section.result div.button button.button-7:focus {
+  background-color: #07c;
+}
+body main.grade section.result div.button button.button-7:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+body main.grade section.result div.button button.button-7:active {
+  background-color: #0064bd;
+  box-shadow: none;
+}
+body main.grade section.result div.button button.button-7 a {
+  text-decoration: none;
+}
 body main.cube section.intro {
   padding: 1rem;
 }
@@ -172,8 +214,54 @@ body main.cube section.intro img {
 body main.cube section.intro div {
   padding-bottom: 1rem;
 }
+body main.cube section.intro div.button {
+  padding: 0rem 2rem 1rem 2rem;
+}
+body main.cube section.intro div.button button.button-7 {
+  background-color: rgb(134, 226, 226);
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px 0.8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+body main.cube section.intro div.button button.button-7:hover, body main.cube section.intro div.button button.button-7:focus {
+  background-color: #07c;
+}
+body main.cube section.intro div.button button.button-7:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+body main.cube section.intro div.button button.button-7:active {
+  background-color: #0064bd;
+  box-shadow: none;
+}
+body main.cube section.intro div.button button.button-7 a {
+  text-decoration: none;
+}
 body main.cube section.intro div.code {
-  padding: 0 10rem 0 10rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
 }
 body main.cube section.intro div.code pre {
   background-color: rgb(70, 68, 68);
@@ -204,8 +292,54 @@ body main.arduino section ul {
 body main.arduino section ul li {
   padding-bottom: 1rem;
 }
+body main.arduino section div.button {
+  padding: 0rem 2rem 1rem 2rem;
+}
+body main.arduino section div.button button.button-7 {
+  background-color: rgb(134, 226, 226);
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px 0.8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+body main.arduino section div.button button.button-7:hover, body main.arduino section div.button button.button-7:focus {
+  background-color: #07c;
+}
+body main.arduino section div.button button.button-7:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+body main.arduino section div.button button.button-7:active {
+  background-color: #0064bd;
+  box-shadow: none;
+}
+body main.arduino section div.button button.button-7 a {
+  text-decoration: none;
+}
 body main.arduino section div.code {
-  padding: 1rem 10rem 1rem 10rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
 }
 body main.arduino section div.code pre {
   background-color: rgb(70, 68, 68);

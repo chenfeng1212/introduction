@@ -190,6 +190,54 @@ body {
                 width: 700px;
                 height: 300px;
             }
+
+            div.button {
+                padding: 0rem 2rem 1rem 2rem;
+
+                button.button-7 {
+                    background-color: rgb(134, 226, 226);
+                    border: 1px solid transparent;
+                    border-radius: 3px;
+                    box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+                    box-sizing: border-box;
+                    color: #fff;
+                    cursor: pointer;
+                    display: inline-block;
+                    font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+                    font-size: 13px;
+                    font-weight: 400;
+                    line-height: 1.15385;
+                    margin: 0;
+                    outline: none;
+                    padding: 8px .8em;
+                    position: relative;
+                    text-align: center;
+                    text-decoration: none;
+                    user-select: none;
+                    -webkit-user-select: none;
+                    touch-action: manipulation;
+                    vertical-align: baseline;
+                    white-space: nowrap;
+    
+                    &:hover,
+                    &:focus {
+                        background-color: #07c;
+                    }
+    
+                    &:focus {
+                        box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+                    }
+    
+                    &:active {
+                        background-color: #0064bd;
+                        box-shadow: none;
+                    }
+    
+                    a {
+                        text-decoration: none;
+                    }
+                }
+            }
         }
     }
 
@@ -223,8 +271,60 @@ body {
                 padding-bottom: 1rem;
             }
 
+            div.button {
+                padding: 0rem 2rem 1rem 2rem;
+
+                button.button-7 {
+                    background-color: rgb(134, 226, 226);
+                    border: 1px solid transparent;
+                    border-radius: 3px;
+                    box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+                    box-sizing: border-box;
+                    color: #fff;
+                    cursor: pointer;
+                    display: inline-block;
+                    font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+                    font-size: 13px;
+                    font-weight: 400;
+                    line-height: 1.15385;
+                    margin: 0;
+                    outline: none;
+                    padding: 8px .8em;
+                    position: relative;
+                    text-align: center;
+                    text-decoration: none;
+                    user-select: none;
+                    -webkit-user-select: none;
+                    touch-action: manipulation;
+                    vertical-align: baseline;
+                    white-space: nowrap;
+    
+                    &:hover,
+                    &:focus {
+                        background-color: #07c;
+                    }
+    
+                    &:focus {
+                        box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+                    }
+    
+                    &:active {
+                        background-color: #0064bd;
+                        box-shadow: none;
+                    }
+    
+                    a {
+                        text-decoration: none;
+                    }
+                }
+            }
+
             div.code {
-                padding: 0 10rem 0 10rem;
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
 
                 pre {                
                     background-color: rgb(70, 68, 68);
@@ -266,9 +366,60 @@ body {
                     padding-bottom: 1rem;
                 }
             }
+            div.button {
+                padding: 0rem 2rem 1rem 2rem;
+
+                button.button-7 {
+                    background-color: rgb(134, 226, 226);
+                    border: 1px solid transparent;
+                    border-radius: 3px;
+                    box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+                    box-sizing: border-box;
+                    color: #fff;
+                    cursor: pointer;
+                    display: inline-block;
+                    font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+                    font-size: 13px;
+                    font-weight: 400;
+                    line-height: 1.15385;
+                    margin: 0;
+                    outline: none;
+                    padding: 8px .8em;
+                    position: relative;
+                    text-align: center;
+                    text-decoration: none;
+                    user-select: none;
+                    -webkit-user-select: none;
+                    touch-action: manipulation;
+                    vertical-align: baseline;
+                    white-space: nowrap;
+    
+                    &:hover,
+                    &:focus {
+                        background-color: #07c;
+                    }
+    
+                    &:focus {
+                        box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+                    }
+    
+                    &:active {
+                        background-color: #0064bd;
+                        box-shadow: none;
+                    }
+    
+                    a {
+                        text-decoration: none;
+                    }
+                }
+            }
 
             div.code {
-                padding: 1rem 10rem 1rem 10rem;
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
 
                 pre {                
                     background-color: rgb(70, 68, 68);
