@@ -56,9 +56,6 @@ body header nav ul li a:hover {
 body header nav ul li a.active {
   color: aqua;
 }
-body main.index {
-  background-color: white;
-}
 body main.index section.first {
   display: flex;
   flex-wrap: wrap;
@@ -208,7 +205,7 @@ body main.arduino section ul li {
   padding-bottom: 1rem;
 }
 body main.arduino section div.code {
-  padding: 0 10rem 0 10rem;
+  padding: 1rem 10rem 1rem 10rem;
 }
 body main.arduino section div.code pre {
   background-color: rgb(70, 68, 68);
