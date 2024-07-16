@@ -1,0 +1,227 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: DFkai-sb, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+body header div.top {
+  padding: 1rem;
+  position: relative;
+  z-index: -2;
+}
+body header div.top::before {
+  content: "";
+  display: block;
+  background-size: cover;
+  background-image: url("../image/header.jpg");
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+body header div.top h1 {
+  font-size: 2.5rem;
+}
+body header div.top h2 {
+  padding-left: 5rem;
+  font-size: 1rem;
+}
+body header nav {
+  background-color: black;
+}
+body header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+body header nav ul li {
+  padding: 0.6rem 1.5rem;
+}
+body header nav ul li a {
+  font-size: 1.2rem;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+body header nav ul li a:hover {
+  color: aqua;
+}
+body header nav ul li a.active {
+  color: aqua;
+}
+body main.index {
+  background-color: white;
+}
+body main.index section.first {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 3rem 1rem 1rem;
+}
+body main.index section.first section.picture {
+  flex: 1 1 200px;
+}
+body main.index section.first section.picture img {
+  width: 75%;
+}
+body main.index section.first section.intro {
+  flex: 5 1 500px;
+}
+body main.index section.first section.intro h2 {
+  font-size: 2rem;
+  color: rgb(12, 122, 92);
+  padding-bottom: 1rem;
+}
+body main.index section.first section.intro p {
+  padding: 0.5rem 0;
+}
+body main.index section.first section.intro ul {
+  padding-left: 2rem;
+}
+body main.index section.second {
+  padding: 0 0 2rem 1.5rem;
+}
+body main.index section.second h2 {
+  font-size: 2rem;
+  color: rgb(12, 122, 92);
+  padding: 1rem 0;
+}
+body main.index section.second div {
+  padding-left: 2rem;
+}
+body main.index section.second div h3 {
+  font-size: 1.5rem;
+  padding: 0.5rem 0;
+  color: rgb(26, 124, 98);
+}
+body footer {
+  background-image: url("../image/footer.jpg");
+  background-size: cover;
+}
+body footer section.text {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+body footer section.text p {
+  color: white;
+  padding: 0.5rem;
+}
+body footer section.text p.top {
+  padding-top: 3rem;
+}
+body footer section.text div.links {
+  padding: 2rem 0 3rem 0;
+}
+body footer section.text div.links a img {
+  width: 5vh;
+  margin: 0rem 1rem;
+}
+body main.grade section.intro {
+  padding: 1rem;
+}
+body main.grade section.intro h2 {
+  font-size: 2rem;
+  color: rgb(12, 122, 92);
+  padding-bottom: 1rem;
+}
+body main.grade section.intro h3 {
+  font-size: 1.5rem;
+  padding: 0.5rem 0 0.5rem 1rem;
+  color: rgb(26, 124, 98);
+}
+body main.grade section.intro p {
+  padding: 0.5rem 0 0.5rem 1rem;
+}
+body main.grade section.result {
+  padding: 1rem;
+}
+body main.grade section.result h2 {
+  font-size: 2rem;
+  color: rgb(12, 122, 92);
+  padding-bottom: 1rem;
+}
+body main.grade section.result img {
+  width: 700px;
+  height: 300px;
+}
+body main.cube section.intro {
+  padding: 1rem;
+}
+body main.cube section.intro h2 {
+  font-size: 2rem;
+  color: rgb(12, 122, 92);
+  padding-bottom: 1rem;
+}
+body main.cube section.intro p {
+  padding-bottom: 1rem;
+}
+body main.cube section.intro ol {
+  padding-left: 2rem;
+}
+body main.cube section.intro ol li {
+  padding-bottom: 1rem;
+}
+body main.cube section.intro img {
+  width: 75vw;
+}
+body main.cube section.intro div {
+  padding-bottom: 1rem;
+}
+body main.cube section.intro div.code {
+  padding: 0 10rem 0 10rem;
+}
+body main.cube section.intro div.code pre {
+  background-color: rgb(70, 68, 68);
+}
+body main.cube section.intro div.code pre code {
+  color: white;
+}
+body main.arduino section {
+  padding: 1rem;
+}
+body main.arduino section h2 {
+  font-size: 2rem;
+  color: rgb(12, 122, 92);
+  padding-bottom: 1rem;
+}
+body main.arduino section h3 {
+  font-size: 1.5rem;
+  padding: 1rem 0 1rem 1rem;
+  color: rgb(26, 124, 98);
+}
+body main.arduino section p {
+  padding-left: 2rem;
+  padding-bottom: 1rem;
+}
+body main.arduino section ul {
+  padding-left: 2rem;
+}
+body main.arduino section ul li {
+  padding-bottom: 1rem;
+}
+body main.arduino section div.code {
+  padding: 0 10rem 0 10rem;
+}
+body main.arduino section div.code pre {
+  background-color: rgb(70, 68, 68);
+}
+body main.arduino section div.code pre code {
+  color: white;
+}
+
+@media screen and (max-width: 960px) {
+  body header nav ul {
+    flex-direction: column;
+  }
+  body header nav ul li {
+    padding: 0.5rem 0.25rem;
+  }
+}/*# sourceMappingURL=style.css.map */

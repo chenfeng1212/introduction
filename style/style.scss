@@ -1,0 +1,300 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: DFkai-sb, sans-serif; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+body {
+    header {
+        div.top {
+            padding: 1rem;
+            position: relative;
+            z-index: -2;
+            
+            &::before {
+                content: "";
+                display: block;
+                background-size: cover;
+                background-image: url("../image/header.jpg");
+                opacity: 0.3;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                padding-left: 5rem;
+                font-size: 1rem;
+            }
+        }
+
+        nav {
+            background-color: black;
+
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+                list-style-type: none;
+
+                li {
+                    padding: 0.6rem 1.5rem;
+
+                    a {
+                        font-size: 1.2rem;
+                        color: white;
+                        text-decoration: none;
+                        transition: all 0.3s ease;
+                        
+                        &:hover {
+                            color: aqua;
+                        }
+
+                        &.active {
+                            color: aqua;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    main.index {
+        background-color: white;
+
+        section.first {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 1rem 3rem 1rem 1rem;
+
+            section.picture {
+                flex: 1 1 200px;
+
+                img {
+                    width: 75%;
+                }
+            }
+
+            section.intro {
+                flex: 5 1 500px;
+
+                h2 {
+                    font-size: 2rem;
+                    color: rgb(12, 122, 92);
+                    padding-bottom: 1rem;
+                }
+
+                p {
+                    padding: 0.5rem 0;
+                }
+
+                ul {
+                    padding-left: 2rem;
+                }
+            }
+        }
+
+        section.second {
+            padding: 0 0 2rem 1.5rem;
+
+            h2 {
+                font-size: 2rem;
+                color: rgb(12, 122, 92);
+                padding: 1rem 0;
+            }
+
+            div {
+                padding-left: 2rem;
+
+                h3 {
+                    font-size: 1.5rem;
+                    padding: 0.5rem 0;
+                    color: rgb(26, 124, 98);
+                }
+            }
+        }
+    }
+
+    footer {
+        background-image: url("../image/footer.jpg");
+        background-size: cover;
+
+        section.text {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+
+            p {
+                color: white;
+                padding: 0.5rem;
+
+                &.top {
+                    padding-top: 3rem;
+                }
+            }
+
+            div.links {
+                padding: 2rem 0 3rem 0;
+
+                a {
+                    img {
+                        width: 5vh;
+                        margin: 0rem 1rem;
+                    }
+                }
+            }
+        }
+    }
+
+    main.grade {
+        section.intro {
+            padding: 1rem;
+
+            h2 {
+                font-size: 2rem;
+                color: rgb(12, 122, 92);
+                padding-bottom: 1rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+                padding: 0.5rem 0 0.5rem 1rem;
+                color: rgb(26, 124, 98);
+            }
+
+            p {
+                padding: 0.5rem 0 0.5rem 1rem;
+            }
+        }
+
+        section.result {
+            padding: 1rem;
+
+            h2 {
+                font-size: 2rem;
+                color: rgb(12, 122, 92);
+                padding-bottom: 1rem;
+            }
+
+            img {
+                width: 700px;
+                height: 300px;
+            }
+        }
+    }
+
+    main.cube {
+        section.intro {
+            padding: 1rem;
+
+            h2 {
+                font-size: 2rem;
+                color: rgb(12, 122, 92);
+                padding-bottom: 1rem;
+            }
+
+            p {
+                padding-bottom: 1rem;
+            }
+
+            ol {
+                padding-left: 2rem;
+
+                li {
+                    padding-bottom: 1rem;
+                }
+            }
+
+            img {
+                width: 75vw;
+            }
+            
+            div {
+                padding-bottom: 1rem;
+            }
+
+            div.code {
+                padding: 0 10rem 0 10rem;
+
+                pre {                
+                    background-color: rgb(70, 68, 68);
+                    
+                    code {
+                        color: white;
+                    }
+                }
+            }
+            
+        }
+    }
+
+    main.arduino {
+        section {
+            padding: 1rem;
+
+            h2 {
+                font-size: 2rem;
+                color: rgb(12, 122, 92);
+                padding-bottom: 1rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+                padding: 1rem 0 1rem 1rem;
+                color: rgb(26, 124, 98);
+            }
+
+            p {
+                padding-left: 2rem;
+                padding-bottom: 1rem;
+            }
+
+            ul {
+                padding-left: 2rem;
+
+                li {
+                    padding-bottom: 1rem;
+                }
+            }
+
+            div.code {
+                padding: 0 10rem 0 10rem;
+
+                pre {                
+                    background-color: rgb(70, 68, 68);
+                    
+                    code {
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 960px) {
+    body {
+        header {
+            nav {
+                ul {
+                    flex-direction: column;
+    
+                    li {
+                        padding: 0.5rem 0.25rem;
+                    }
+                }
+            }
+        }
+    }
+}

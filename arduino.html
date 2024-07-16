@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="zh-Hants">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>曾立呈的個人網站</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <header>
+        <div class="top">
+            <h1>曾立呈的個人網站</h1>
+            <h2>這裡都是我自己做的專案，內有簡單的介紹，和我的自介及未來目標。</h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="./index.html">簡介</a></li> 
+                <li><a href="./grade.html">成績公布系統</a></li>
+                <li><a href="./cube.html">魔術方塊還原程式</a></li>
+                <li><a href="https://chenfeng1212.github.io/go_game/">圍棋資訊網</a></li>
+                <li><a href="https://chenfeng1212.github.io/japan_journey/">日本旅遊推薦</a></li>
+                <li><a href="#" class="active">arduino像素遊戲</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="arduino">
+        <section>
+            <h2>製作目的</h2>
+            <p>這是為了單車節展示而製作的專案</p>
+            <h3>目錄</h3>
+            <ul>
+                <li><a href="#list1">射殭屍</a></li>
+                <li><a href="#list2">飛翔的小鳥</a></li>
+                <li><a href="#list3">俄羅斯方塊</a></li>
+                <li><a href="#list4">雷霆戰機</a></li>
+            </ul>
+            <hr>
+            <h2 id="list1">射殭屍</h2>
+            <h3>遊戲影片</h3>
+            <video src="./image/zombie.mp4"
+            width="500" 
+            height="400" 
+            autoplay="true" 
+            controls="true" ></video>
+            <h3>程式碼</h3>
+            <div class="code">
+                <pre>
+                    <code>
+                        #include ＜FastLED.h＞
+    
+                            // 定義LED燈带的数據腳位、LED数量和顏色類型
+                            #define DATA_PIN 3
+                            #define BUTTON1 10
+                            #define BUTTON2 9
+                            #define BUTTON3 11
+                            #define BUTTON4 10
+                            #define LED_COUNT 100
+                            #define LED_TYPE WS2812B
+                            
+                            
+                            
+                            // 定義FastLED對象
+                            CRGB leds[LED_COUNT];
+                            
+                            void setup() {
+                              // 初始化FastLED庫
+                              FastLED.addLeds＜LED_TYPE, DATA_PIN, GRB＞(leds, LED_COUNT);
+                              Serial.begin(9600);  // 初始化串口通信
+                              pinMode(6, OUTPUT);
+                              pinMode(BUTTON1, INPUT);
+                              pinMode(BUTTON2, INPUT);
+                              pinMode(BUTTON3, INPUT);
+                              pinMode(BUTTON4, INPUT);
+                            }
+                            
+                            int c1;
+                            
+                            void loop() {
+                              
+                              int Three[10][10] = 
+                              {{0,0,0,0,0,0,0,0,0,0}
+                              ,{0,0,10,10,10,10,10,0,0,0}
+                              ,{0,0,0,0,0,0,10,0,0,0}
+                              ,{0,0,0,0,0,0,10,0,0,0}
+                              ,{0,0,10,10,10,10,10,0,0,0}
+                              ,{0,0,0,0,0,0,10,0,0,0}
+                              ,{0,0,0,0,0,0,10,0,0,0}
+                              ,{0,0,10,10,10,10,10,0,0,0}
+                              ,{0,0,0,0,0,0,0,0,0,0}
+                              ,{0,0,0,0,0,0,0,0,0,0}
+                              };
+                              
+                              
+                              int Two[10][10] = 
+                              {{0,0,0,0,0,0,0,0,0,0}
+                              ,{0,0,10,10,10,10,10,0,0,0}
+                              ,{0,0,0,0,0,0,10,0,0,0}
+                              ,{0,0,0,0,0,0,10,0,0,0}
+                              ,{0,0,10,10,10,10,10,0,0,0}
+                              ,{0,0,10,0,0,0,0,0,0,0}
+                              ,{0,0,10,0,0,0,0,0,0,0}
+                              ,{0,0,10,10,10,10,10,0,0,0}
+                              ,{0,0,0,0,0,0,0,0,0,0}
+                              ,{0,0,0,0,0,0,0,0,0,0}
+                              };
+                              
+                              
+                              int One[10][10] = 
+                              {{0,0,0,0,0,0,0,0,0,0}
+                              ,{0,0,0,10,10,0,0,0,0,0}
+                              ,{0,0,0,0,10,0,0,0,0,0}
+                              ,{0,0,0,0,10,0,0,0,0,0}
+                              ,{0,0,0,0,10,0,0,0,0,0}
+                              ,{0,0,0,0,10,0,0,0,0,0}
+                              ,{0,0,0,0,10,0,0,0,0,0}
+                              ,{0,0,0,0,10,0,0,0,0,0}
+                              ,{0,0,0,0,0,0,0,0,0,0}
+                              ,{0,0,0,0,0,0,0,0,0,0}
+                              };
+                              
+                              
+                              int Zero[10][10] = 
+                              {{0,0,0,0,0,0,0,0,0,0}
+                              ,{0,0,10,10,10,10,10,0,0,0}
+                              ,{0,0,10,0,0,0,10,0,0,0}
+                              ,{0,0,10,0,0,0,10,0,0,0}
+                              ,{0,0,10,0,0,0,10,0,0,0}
+                              ,{0,0,10,0,0,0,10,0,0,0}
+                              ,{0,0,10,0,0,0,10,0,0,0}
+                              ,{0,0,10,10,10,10,10,0,0,0}
+                              ,{0,0,0,0,0,0,0,0,0,0}
+                              ,{0,0,0,0,0,0,0,0,0,0}
+                              };
+                              
+                              int i, j, button1, button2 ,button3;
+                              int Screen[10][10] = {0};  
+                              for(i=0; i< 10; i++) for(j=0; j< 10; j++) Screen[i][j] = 10;
+                            
+                                
+                              printled(Screen);
+                              if(digitalRead(BUTTON1)) button1 = 0;
+                              if(digitalRead(BUTTON2)) button2 = 0;
+                              if(digitalRead(BUTTON3)) button3 = 0;
+                              
+                              if(!digitalRead(BUTTON1)) button1++;
+                              if(!digitalRead(BUTTON2)) button2++;
+                              if(!digitalRead(BUTTON3)) button3++;
+                              if(button1==1 || button2==1 || button3==1){ 
+                                delay(200);
+                                printled(Three);
+                                delay(1000);
+                                printled(Two);
+                                delay(1000);
+                                printled(One);
+                                delay(1000);
+                                printled(Zero);
+                                delay(1000);
+                                int t = 0, score = 0;
+                                c1 = 4;
+                                for(int i=0; i< 10; i++){
+                                  for(int j=0; j< 10; j++){
+                                    Screen[i][j] = 0;
+                                  }
+                                }
+                                for(int i=7; i< 10; i++){
+                                  for(int j=1; j< 10; j++){
+                                    Screen[i][j] = 10;
+                                  }
+                                }
+                                Screen[8][2] = 0;
+                                Screen[8][5] = 0;
+                                Screen[8][8] = 0;
+                                Screen[2][(rand()%3)*3+2] = 1;
+                                Screen[5][(rand()%3)*3+2] = 1;
+                                Screen[8][(rand()%3)*3+2] = 1;
+                            
+                                
+                                while(1){
+                                  if(digitalRead(BUTTON1)) button1 = 0;
+                                  if(digitalRead(BUTTON2)) button2 = 0;
+                                  if(digitalRead(BUTTON3)) button3 = 0;
+                                  
+                                  if(!digitalRead(BUTTON1)) button1++;
+                                  if(!digitalRead(BUTTON2)) button2++;
+                                  if(!digitalRead(BUTTON3)) button3++;
+                                  delay(10);
+                                  t++;Serial.println(t);
+                                  if(t == 1800) break;
+                                  //Screen[0][t/180] = 4;
+                                  Screen[10-score/15][0] = 2;
+                                  if(score%15 == 0){
+                                    c1 = random()%9+1;
+                                    score++;
+                                  }
+                                  printled(Screen);
+                                  
+                                  if(button1==1 || button2==1 || button3==1){
+                                    if(button1==1 && Screen[8][2]==1){
+                                      G(Screen);
+                                      score++;
+                                    }
+                                    else if(button2==1 && Screen[8][5]==1){
+                                      G(Screen);
+                                      score++;
+                                    }
+                                    else if(button3==1 && Screen[8][8]==1){
+                                      G(Screen);
+                                      score++;
+                                    }else{
+                                      for(int i=0; i< 3; i++){
+                                        if(Screen[8][i*3+2] == 1){
+                                          Screen[8][i*3+2] = 0;
+                                          Screen[7][i*3+2] = 1;
+                                          printled(Screen);
+                                          delay(200);
+                                          Screen[7][i*3+2] = 10;
+                                          Screen[8][i*3+2] = 1;
+                                          printled(Screen);
+                                        }
+                                      }      
+                                    }
+                                  }
+                                }
+                                
+                                
+                                int i, j;
+                                for(i=0; i< 3; i++){
+                                  for(j=0; j< 3; j++){
+                                    Screen[i*3+2][j*3+2] = 1;
+                                  }
+                                }
+                                printled(Screen);
+                                delay(2000);
+                              }
+                            }
+                            
+                            
+                            void G(int Screen[10][10]){
+                              int i, j;
+                              for(i=2; i>=1; i--){
+                                for(j=0; j< 3; j++){
+                                  if(Screen[i*3+2-3][j*3+2] == 1){
+                                    Screen[i*3+2][j*3+2] = 1; 
+                                  }else{
+                                    Screen[i*3+2][j*3+2] = 0; 
+                                  }
+                                }
+                              }
+                              for(j=0; j< 3; j++) Screen[2][j*3+2] = 0;
+                              Screen[2][rand()%3*3+2] = 1;  
+                            }
+                            
+                            void printled(int Screen[10][10]) //螢幕顯示(arduino要改成控制LED) 
+                            {  
+                              int i, j;
+                              for(i=0; i< 10; i++){
+                                for(j=0; j< 10; j++){
+                                  int a = Screen[i][j];
+                                  if(a == 1){
+                                    a = c1;
+                                  }
+                                  switch(a){
+                                    case 0:
+                                      leds[10*i+j] = CRGB::Black;
+                                      break;
+                                    case 1:
+                                      leds[10*i+j] = CRGB::Purple;
+                                      break;
+                                    case 2:
+                                      leds[10*i+j] = CRGB::Red;
+                                      break;
+                                    case 3:
+                                      leds[10*i+j] = CRGB::Yellow;
+                                      break;
+                                    case 4:
+                                      leds[10*i+j] = CRGB::Orange;
+                                      break;
+                                    case 5:
+                                      leds[10*i+j] = CRGB::Pink;
+                                      break;
+                                    case 6:
+                                      leds[10*i+j] = CRGB::Gray;
+                                      break;
+                                    case 7:
+                                      leds[10*i+j] = CRGB::Blue;
+                                      break;
+                                    case 8:
+                                      leds[10*i+j] = CRGB::Purple;
+                                      break;
+                                    case 9:
+                                      leds[10*i+j] = CRGB::White;
+                                      break;
+                                    case 10:
+                                      leds[10*i+j] = CRGB::Brown;
+                                      break;
+                                  }
+                                }
+                              }
+                              FastLED.show();
+                            }
+                            
+                    </code>
+                </pre>
+            </div>
+            <hr>
+            <h2 id="list2">飛翔的小鳥</h2>
+            <h3>程式碼</h3>
+            <div class="code">
+                <pre>
+                    <code>
+                        #include ＜FastLED.h＞
+
+                            // 定義LED燈带的数據腳位、LED数量和顏色類型
+                            #define DATA_PIN 3
+                            #define BUTTON1 9
+                            #define BUTTON2 10
+                            #define BUTTON3 11
+                            #define BUTTON4 12
+                            #define LED_COUNT 100
+                            #define LED_TYPE WS2812B
+                            #define micPin A0  // 小麥克風連接到模擬輸入A0引腳
+                            
+                            // 定義FastLED對象
+                            CRGB leds[LED_COUNT];
+                            
+                            void setup(){
+                              // 初始化FastLED庫
+                              FastLED.addLeds＜LED_TYPE, DATA_PIN, GRB＞(leds, LED_COUNT);
+                              Serial.begin(9600);  // 初始化串口通信
+                              pinMode(6, OUTPUT);
+                              pinMode(BUTTON1, INPUT);
+                              pinMode(BUTTON2, INPUT);
+                              pinMode(BUTTON3, INPUT);
+                              pinMode(BUTTON4, INPUT);
+                            }
+                            
+                            void loop() {
+                              int Screen[10][10] = {0},button1 = 0, button2 = 0, button3 = 0, button4 = 0;   //紀錄 10*10 LED矩陣亮暗
+                              
+                              int Three[10][10] = 
+                              {{0,0,0,0,0,0,0,0,0,0}
+                              ,{0,0,1,1,1,1,1,0,0,0}
+                              ,{0,0,0,0,0,0,1,0,0,0}
+                              ,{0,0,0,0,0,0,1,0,0,0}
+                              ,{0,0,1,1,1,1,1,0,0,0}
+                              ,{0,0,0,0,0,0,1,0,0,0}
+                              ,{0,0,0,0,0,0,1,0,0,0}
+                              ,{0,0,1,1,1,1,1,0,0,0}
+                              ,{0,0,0,0,0,0,0,0,0,0}
+                              ,{0,0,0,0,0,0,0,0,0,0}
+                              };
+                              
+                              
+                              int Two[10][10] = 
+                              {{0,0,0,0,0,0,0,0,0,0}
+                              ,{0,0,1,1,1,1,1,0,0,0}
+                              ,{0,0,0,0,0,0,1,0,0,0}
+                              ,{0,0,0,0,0,0,1,0,0,0}
+                              ,{0,0,1,1,1,1,1,0,0,0}
+                              ,{0,0,1,0,0,0,0,0,0,0}
+                              ,{0,0,1,0,0,0,0,0,0,0}
+                              ,{0,0,1,1,1,1,1,0,0,0}
+                              ,{0,0,0,0,0,0,0,0,0,0}
+                              ,{0,0,0,0,0,0,0,0,0,0}
+                              };
+                              
+                              
+                              int One[10][10] = 
+                              {{0,0,0,0,0,0,0,0,0,0}
+                              ,{0,0,0,1,1,0,0,0,0,0}
+                              ,{0,0,0,0,1,0,0,0,0,0}
+                              ,{0,0,0,0,1,0,0,0,0,0}
+                              ,{0,0,0,0,1,0,0,0,0,0}
+                              ,{0,0,0,0,1,0,0,0,0,0}
+                              ,{0,0,0,0,1,0,0,0,0,0}
+                              ,{0,0,0,0,1,0,0,0,0,0}
+                              ,{0,0,0,0,0,0,0,0,0,0}
+                              ,{0,0,0,0,0,0,0,0,0,0}
+                              };
+                              
+                              
+                              int Zero[10][10] = 
+                              {{0,0,0,0,0,0,0,0,0,0}
+                              ,{0,0,1,1,1,1,1,0,0,0}
+                              ,{0,0,1,0,0,0,1,0,0,0}
+                              ,{0,0,1,0,0,0,1,0,0,0}
+                              ,{0,0,1,0,0,0,1,0,0,0}
+                              ,{0,0,1,0,0,0,1,0,0,0}
+                              ,{0,0,1,0,0,0,1,0,0,0}
+                              ,{0,0,1,1,1,1,1,0,0,0}
+                              ,{0,0,0,0,0,0,0,0,0,0}
+                              ,{0,0,0,0,0,0,0,0,0,0}
+                              };
+                            
+                              double x = -1, y = 5, v = 0, t = -1, cd = 0; // 紀錄flapppy bird高度, 下落速度, 時間
+                              
+                              int i, j;
+                              for(i=0; i< 10; i++) for(j=0; j< 10; j++) Screen[i][j] = 1;
+                            
+                                
+                              printled(Screen);
+                              if(digitalRead(BUTTON1)) button1 = 0;
+                              if(digitalRead(BUTTON2)) button2 = 0;
+                              if(digitalRead(BUTTON3)) button3 = 0;
+                              
+                              if(!digitalRead(BUTTON1)) button1++;
+                              if(!digitalRead(BUTTON2)) button2++;
+                              if(!digitalRead(BUTTON3)) button3++;
+                              if(button1==1 || button2==1 || button3==1 || button4==1){ 
+                                delay(200);
+                                printled(Three);
+                                delay(1000);
+                                printled(Two);
+                                delay(1000);
+                                printled(One);
+                                delay(1000);
+                                printled(Zero);
+                                delay(1000);
+                                for(i=0; i< 10; i++) for(j=0; j< 10; j++) Screen[i][j] = 0;
+                            
+                                while(1){
+                                  if(digitalRead(BUTTON1)) button1 = 0;
+                                  if(digitalRead(BUTTON2)) button2 = 0;
+                                  if(digitalRead(BUTTON3)) button3 = 0;
+                                  
+                                  if(!digitalRead(BUTTON1)) button1++;
+                                  if(!digitalRead(BUTTON2)) button2++;
+                                  if(!digitalRead(BUTTON3)) button3++;
+                                  
+                                  delay(50);    // 畫面每50ms更新一次  
+                                  t += 1;
+                                  
+                                  printled(Screen);
+                                  
+                                  
+                                  if(Screen[(int)y][3]==1 || y< 0 || y>=10){    // 判斷是否出界
+                                    delay(1000); 
+                                    break; 
+                                  } 
+                                  
+                                  Screen[(int)y][3] = 0;
+                                  y += v;
+                                  v += 0.02;
+                                  Screen[(int)y][3] = 2;
+                                  
+                                  if(Screen[(int)y][3]==1 || y< 0 || y>=10){    // 判斷是否出界
+                                    delay(1000); 
+                                    break; 
+                                  } 
+                                  
+                                  //點擊按鍵
+                                  if(button1==1 || button2==1 || button3==1 || button4==1){
+                                    v = -0.3;
+                                  }
+                                  
+                                  //每250ms 
+                                  if(((int)t)%5 == 0){
+                                    int i, j, temp[10][10] = {0};
+                                    
+                                    //牆往右移動
+                                    for(i=0; i< 10; i++) for(j=0; j< 9; j++) Screen[i][j] = (Screen[i][j+1] == 1)?1:0;
+                              
+                                    for(i=0; i< 10; i++) Screen[i][9] = 0;
+                                    
+                                    //每20000ms在最右側生成新的牆
+                                    if(((int)t)%30 == 0){
+                                      int i, j, hole_y = random()%6+2;
+                                      for(i=0; i< 10; i++) Screen[i][9] = (abs(i-hole_y)>2)?1:0;  
+                                    } 
+                                  } 
+                                  printled(Screen);
+                                  if(Screen[(int)y][3]==1 || y< 0 || y>=10){    // 判斷是否出界
+                                    delay(1000); 
+                                    break; 
+                                  } 
+                                }
+                                
+                              }
+                            }
+                            
+                            
+                            void printled(int Screen[10][10]) //螢幕顯示(arduino要改成控制LED) 
+                            {  
+                              int i, j;
+                              for(i=0; i< 10; i++){
+                                for(j=0; j< 10; j++){
+                                  switch(Screen[i][j]){
+                                    case 0:
+                                      leds[10*i+j] = 0;
+                                      break;
+                                    case 1:
+                                      leds[10*i+j] = CRGB::Green;
+                                      break;
+                                    case 2:
+                                      leds[10*i+j] = CRGB::Yellow;
+                                      break;
+                                    case 3:
+                                      break;
+                                    case 4:
+                                      break;
+                                    case 5:
+                                      break;
+                                    case 6:
+                                      break;
+                                    case 7:
+                                      break;
+                                    case 8:
+                                      break;
+                                  }
+                                }
+                              }
+                              FastLED.show();
+                            }
+                    </code>
+                </pre>
+            </div>
+            <hr>
+            <h2 id="list3">俄羅斯方塊</h2>
+            <h3>程式碼</h3>
+            <div class="code">
+                <pre>
+                    <code>
+                        #include ＜FastLED.h＞
+
+                            // 定義LED燈带的数據腳位、LED数量和顏色類型
+                            #define DATA_PIN 3
+                            #define BUTTON1 10
+                            #define BUTTON2 11
+                            #define BUTTON3 9
+                            #define BUTTON4 10
+                            #define LED_COUNT 100
+                            #define LED_TYPE WS2812B
+                            #define micPin A0  // 小麥克風連接到模擬輸入A0引腳
+                            #define NOTE_D4  294
+                            #define NOTE_E5  659
+                            #define NOTE_A0  0
+                            
+                            int melody1[] = {
+                              NOTE_D4, NOTE_A0
+                            };
+                            
+                            int noteDurations1[] = {
+                              2,2
+                            };
+                            
+                            int melody2[] = {
+                              NOTE_E5, NOTE_A0
+                            };
+                            
+                            int noteDurations2[] = {
+                              2,2
+                            };
+                            
+                            
+                            int Sc[14][14]={0},Now[3],c1,button1 = 0, button2 = 0, button3 = 0// y,x,shape
+                            ,point=0,Shape[5][5]={0},Shape2[5][5]={0},
+                            Table[7][5][5]{
+                              { // I--0
+                                   {0,0,0,0,0}
+                                  ,{0,0,0,0,0}
+                                  ,{0,1,1,1,1}
+                                  ,{0,0,0,0,0}
+                                  ,{0,0,0,0,0}
+                              },{// J--1
+                                   {0,0,0,0,0}
+                                  ,{0,1,0,0,0}
+                                  ,{0,1,1,1,0}
+                                  ,{0,0,0,0,0}
+                                  ,{0,0,0,0,0}
+                              },{// L--2
+                                   {0,0,0,0,0}
+                                  ,{0,0,0,1,0}
+                                  ,{0,1,1,1,0}
+                                  ,{0,0,0,0,0}
+                                  ,{0,0,0,0,0}
+                              },{// O--3
+                                   {0,0,0,0,0}
+                                  ,{0,0,1,1,0}
+                                  ,{0,0,1,1,0}
+                                  ,{0,0,0,0,0}
+                                  ,{0,0,0,0,0}
+                              },{// S--4
+                                   {0,0,0,0,0}
+                                  ,{0,0,1,1,0}
+                                  ,{0,1,1,0,0}
+                                  ,{0,0,0,0,0}
+                                  ,{0,0,0,0,0}
+                              },{// T--5
+                                   {0,0,0,0,0}
+                                  ,{0,0,1,0,0}
+                                  ,{0,1,1,1,0}
+                                  ,{0,0,0,0,0}
+                                  ,{0,0,0,0,0}
+                              },{// Z--6
+                                   {0,0,0,0,0}
+                                  ,{0,1,1,0,0}
+                                  ,{0,0,1,1,0}
+                                  ,{0,0,0,0,0}
+                                  ,{0,0,0,0,0}
+                              }
+                            };
+                            
+                            void play(int *melody, int *noteDurations, int num){
+                              for(int note = 0; note < num; note++){
+                                int noteDuration = 300 / noteDurations[note];
+                                tone(8, melody[note], noteDuration);
+                                delay(50);
+                              }
+                            }
+                            
+                            // 定義FastLED對象
+                            CRGB leds[LED_COUNT];
+                            
+                            void setup() {
+                              // 初始化FastLED庫
+                              FastLED.addLeds＜LED_TYPE, DATA_PIN, GRB＞(leds, LED_COUNT);
+                              Serial.begin(9600);  // 初始化串口通信
+                              pinMode(6, OUTPUT);
+                              pinMode(BUTTON1, INPUT);
+                              pinMode(BUTTON2, INPUT);
+                              pinMode(BUTTON3, INPUT);
+                              pinMode(BUTTON4, INPUT);
+                            }
+                            
+                            void loop() {
+                              c1 = 4+random()%7;
+                              for(int i=0;i< 14;i++) Sc[i][1]=2;
+                              for(int i=0;i< 14;i++) Sc[i][12]=2;
+                              for(int i=0;i< 14;i++) Sc[13][i]=2;
+                            
+                              char ch;
+                              int times = 0;
+                              bool gameend = false;
+                              Setnew();
+                              int t = 0;
+                              while(1){
+                                  if(digitalRead(BUTTON1)) button1 = 0;
+                                  if(digitalRead(BUTTON2)) button2 = 0;
+                                  if(digitalRead(BUTTON3)) button3 = 0;
+                                  
+                                  if(!digitalRead(BUTTON1)) button1++;
+                                  if(!digitalRead(BUTTON2)) button2++;
+                                  if(!digitalRead(BUTTON3)) button3++;
+                                  Delete();
+                                  for(int i=2;i< 12;i++) if(Sc[2][i]==2) gameend = true;
+                                  
+                                  if(gameend) break;
+                                  if(times++==20){
+                                      if(!G()){
+                                          //方塊落下
+                                          if(!Setnew()) gameend=true;
+                                          play(melody1, noteDurations1, 1);
+                                      }
+                                      times=0;
+                                  }
+                                  delay(20);
+                                  t = (t+1)%1000;
+                            
+                                  //
+                                  int i, j, Screen[10][10];
+                                  for(i=0; i< 10; i++){
+                                    for(j=0; j< 10; j++){
+                                          Screen[i][j] = Sc[i+3][j+2];
+                                      }
+                                  }
+                                  printled(Screen);
+                                  if(button1 == 1){
+                                    if(Check(0,-1)){
+                                        Draw(Now[0],Now[1],0,-1);
+                                        Now[1]--;
+                                        Draw2();
+                                    }
+                                  }
+                            
+                                  
+                                  if(button2 == 1){
+                                    if(Check(0,1)){
+                                        Draw(Now[0],Now[1],0,+1);
+                                        Now[1]++;
+                                        Draw2();
+                                    }
+                                  }
+                                  if(button3 == 1){
+                                      play(melody2, noteDurations2, 1);
+                                      for(int i=0;i< 5;i++){
+                                          for(int j=0;j< 5;j++){
+                                              Shape2[i][j]=Shape[4-j][i];
+                                            
+                                          }
+                                     
+                                      }
+                                      swaps();
+                                      if(!Check(0,0)){
+                                          swaps();
+                                          for(int i=0;i< 5;i++){
+                                              for(int j=0;j< 5;j++){
+                                                  Shape2[i][j]=Shape[i][j];
+                                              }
+                                          }
+                                      }
+                                      Draw(Now[0],Now[1],0,0);
+                                      for(int i=0;i< 5;i++){
+                                          for(int j=0;j< 5;j++){
+                                              Shape2[i][j]=Shape[i][j];
+                                          }
+                                      }
+                                      Draw2();
+                                 }/*
+                                 if(digitalRead(BOTTON4)){
+                                    while(G()){}
+                                    if(!Setnew()) gameend=true;
+                                    break;
+                                 }*/
+                              }
+                              int i, j;
+                              for(i=0; i< 14; i++){
+                                for(j=0; j< 12; j++){
+                                  Sc[i][j] = 0;
+                                }
+                              }
+                            }
+                            
+                            
+                            void swaps(){
+                                int Shape3[5][5];
+                                for(int i=0;i< 5;i++) for(int j=0;j< 5;j++) Shape3[i][j] = Shape[i][j];
+                                for(int i=0;i< 5;i++) for(int j=0;j< 5;j++) Shape[i][j]  = Shape2[i][j];
+                                for(int i=0;i< 5;i++) for(int j=0;j< 5;j++) Shape2[i][j] = Shape3[i][j];
+                            }
+                            
+                            bool Check(int x,int y){
+                                for(int i=0;i< 5;i++) for(int j=0;j< 5;j++) 
+                                if(Shape[i][j]==1 && Sc[Now[0]+i+x][Now[1]+j+y]==2) return false;
+                                return true;
+                            }
+                            
+                            void Draw(int x,int y,int ax,int ay){ //位移方塊 
+                                for(int i=0;i< 5;i++) for(int j=0;j< 5;j++) if(Shape2[i][j] == 1) Sc[Now[0]+i][Now[1]+j]=0;
+                                for(int i=0;i< 5;i++) for(int j=0;j< 5;j++) if(Shape[i][j] == 1)  Sc[Now[0]+i+ax][Now[1]+j+ay]=1;
+                            }
+                              
+                            void Draw2(){ //畫預測位置 
+                                for(int i=2;i< 13;i++) for(int j=2;j< 13;j++) if(Sc[i][j]==3) Sc[i][j]=0;
+                                int c=1;
+                                for(int i=0;i< 5;i++) for(int j=0;j< 5;j++) while(Check(c,0)) c++;
+                                for(int i=0;i< 5;i++) for(int j=0;j< 5;j++)
+                                if((Shape[i][j]==1)&&(Sc[Now[0]+i+c-1][Now[1]+j]==0)) Sc[Now[0]+i+c-1][Now[1]+j]=3;         
+                            }
+                            
+                            bool Setnew(){
+                                int n=random()%7;
+                                if(n==0){
+                                    Now[0]=0;
+                                Now[1]=random()%5+1;
+                                }else{
+                                    Now[0]=1;
+                                Now[1]=random()%6+1;
+                                }
+                                Now[2]=n;
+                                for(int i=0;i< 5;i++) for(int j=0;j< 5;j++) Shape[i][j]=Shape2[i][j]=Table[n][i][j];
+                                if(Check(0,0)){
+                                    Draw(Now[0],Now[1],0,0);
+                                    Draw2();
+                                }else{
+                                    Draw(Now[0],Now[1],0,0);
+                                    return false;
+                                }
+                                return true;
+                            }
+                            
+                            
+                            void Delete(){
+                                bool ok;
+                                int down=0;
+                                for(int i=12;i>=2;i--){
+                                    ok=true;
+                                    for(int j=2;j< 12;j++) if(Sc[i][j]!=2){ok=false;break;}
+                                    if(down){
+                                        for(int j=2;j< 12;j++){Sc[i+down][j]=Sc[i][j];Sc[i][j]=0;}
+                                    }
+                                    if(ok) down++;
+                                }
+                                point+=down*10000;
+                            }
+                            
+                            bool G(){
+                                if(Check(1,0)){
+                                    Draw(Now[0],Now[1],1,0);
+                                    Now[0]++;
+                                    return true;
+                                }
+                                int t=0;
+                                while(1){
+                                    if(t++ == 10) break;
+                                    delay(10);
+                                    if(button1 == 1){
+                                        if(Check(0,-1)){
+                                            Draw(Now[0],Now[1],0,-1);
+                                            Now[1]--;
+                                        }
+                                    }
+                                    if(button2 == 1){
+                                         if(Check(0,1)){
+                                            Draw(Now[0],Now[1],0,+1);
+                                            Now[1]++;
+                                        }
+                                    }
+                                }
+                            
+                                if(Check(1,0)){
+                                    Draw(Now[0],Now[1],1,0);
+                                    Now[0]++;
+                                    return true;
+                                }
+                                for(int i=0;i< 5;i++){
+                                    for(int j=0;j< 5;j++){
+                                        if(Shape[i][j]==1){
+                                            Sc[Now[0]+i][Now[1]+j]=2;
+                                        }
+                                    }
+                                }
+                                return false;
+                            }
+                            
+                            
+                            void printled(int Screen[10][10]) //螢幕顯示(arduino要改成控制LED) 
+                            {  
+                              int i, j;
+                              for(i=0; i< 10; i++){
+                                for(j=0; j< 10; j++){
+                                  int a;
+                                  a = Screen[i][j];
+                                  if(a == 2) a=c1;
+                                  switch(a){
+                                    case 0:
+                                      leds[10*i+j] = CRGB::Black;
+                                      break;
+                                    case 1:
+                                      leds[10*i+j] = CRGB::Green;
+                                      break;
+                                    case 2:
+                                      leds[10*i+j] = CRGB::Red;
+                                      break;
+                                    case 3:
+                                      leds[10*i+j] = CRGB::Yellow;
+                                      break;
+                                    case 4:
+                                      leds[10*i+j] = CRGB::Orange;
+                                      break;
+                                    case 5:
+                                      leds[10*i+j] = CRGB::Pink;
+                                      break;
+                                    case 6:
+                                      leds[10*i+j] = CRGB::Gray;
+                                      break;
+                                    case 7:
+                                      leds[10*i+j] = CRGB::Blue;
+                                      break;
+                                    case 8:
+                                      leds[10*i+j] = CRGB::Purple;
+                                      break;
+                                    case 9:
+                                      leds[10*i+j] = CRGB::White;
+                                      break;
+                                    case 10:
+                                      leds[10*i+j] = CRGB::Brown;
+                                      break;
+                                  }
+                                }
+                              }
+                              FastLED.show();
+                            }
+                            
+                    </code>
+                </pre>
+            </div>
+            <hr>
+            <h2 id="list4">雷霆戰機</h2>
+            <h3>程式碼</h3>
+            <div class="code">
+                <pre>
+                    <code>
+                        #include ＜FastLED.h＞
+
+                            // 定義LED燈带的数據腳位、LED数量和顏色類型
+                            #define DATA_PIN 3
+                            #define BUTTON1 10
+                            #define BUTTON2 9
+                            #define BUTTON3 11
+                            #define BUTTON4 10
+                            #define LED_COUNT 100
+                            #define LED_TYPE WS2812B
+                            
+                            //define music 
+                            #define NOTE_A0 0
+                            #define NOTE_D1  37
+                            #define NOTE_A3  220
+                            #define NOTE_AS3 233
+                            #define NOTE_B3  247
+                            #define NOTE_C4  262
+                            #define NOTE_CS4 277
+                            #define NOTE_D4  294
+                            #define NOTE_DS4 311
+                            #define NOTE_E4  330
+                            #define NOTE_F4  349
+                            #define NOTE_FS4 370
+                            #define NOTE_G4  392
+                            #define NOTE_GS4 415
+                            #define NOTE_A4  440
+                            #define NOTE_AS4 466
+                            #define NOTE_B4  494
+                            #define NOTE_C5  523
+                            #define NOTE_CS5 554
+                            #define NOTE_D5  587
+                            #define NOTE_DS5 622
+                            #define NOTE_E5  659
+                            #define NOTE_F5  698
+                            #define NOTE_FS5 740
+                            #define NOTE_G5  784
+                            #define NOTE_GS5 831
+                            
+                            int melody1[] = {
+                              NOTE_D4, NOTE_A0
+                            };
+                            
+                            int noteDurations1[] = {
+                              2,2
+                            };
+                            
+                            int melody2[] = {
+                              NOTE_E5, NOTE_A0
+                            };
+                            
+                            int noteDurations2[] = {
+                              2,2
+                            };
+                            
+                            int melody3[] = {
+                              NOTE_B3, NOTE_A0
+                            };
+                            int noteDurations3[] = {
+                              2,2
+                            };
+                            
+                            int melody4[] = {
+                              NOTE_G5, NOTE_A0
+                            };
+                            int noteDurations4[] = {
+                              2,2
+                            };
+                            
+                            int melody5[] = {
+                              NOTE_B4, NOTE_F5, NOTE_F5, NOTE_E5, NOTE_D5, NOTE_C5, NOTE_D1
+                            };
+                            int noteDurations5[] = {
+                              2,2,2,2,2,2,2
+                            };
+                            
+                            
+                            
+                            void play(int *melody, int *noteDurations, int num){
+                              for(int note = 0; note < num; note++){
+                                int noteDuration = 300 / noteDurations[note];
+                                tone(8, melody[note], noteDuration);
+                                delay(50);
+                              }
+                            }
+                            // 定義FastLED對象
+                            CRGB leds[LED_COUNT];
+                            
+                            void setup() {
+                              // 初始化FastLED庫
+                              FastLED.addLeds＜LED_TYPE, DATA_PIN, GRB＞(leds, LED_COUNT);
+                              Serial.begin(9600);  // 初始化串口通信
+                              pinMode(6, OUTPUT);
+                              pinMode(BUTTON1, INPUT);
+                              pinMode(BUTTON2, INPUT);
+                              pinMode(BUTTON3, INPUT);
+                              pinMode(BUTTON4, INPUT);
+                            }
+                            
+                            
+                            void loop() {
+                                int Three[10][10] = 
+                                {{0,0,0,0,0,0,0,0,0,0}
+                                ,{0,0,1,1,1,1,1,0,0,0}
+                                ,{0,0,0,0,0,0,1,0,0,0}
+                                ,{0,0,0,0,0,0,1,0,0,0}
+                                ,{0,0,1,1,1,1,1,0,0,0}
+                                ,{0,0,0,0,0,0,1,0,0,0}
+                                ,{0,0,0,0,0,0,1,0,0,0}
+                                ,{0,0,1,1,1,1,1,0,0,0}
+                                ,{0,0,0,0,0,0,0,0,0,0}
+                                ,{0,0,0,0,0,0,0,0,0,0}
+                                };
+                                
+                                
+                                int Two[10][10] = 
+                                {{0,0,0,0,0,0,0,0,0,0}
+                                ,{0,0,1,1,1,1,1,0,0,0}
+                                ,{0,0,0,0,0,0,1,0,0,0}
+                                ,{0,0,0,0,0,0,1,0,0,0}
+                                ,{0,0,1,1,1,1,1,0,0,0}
+                                ,{0,0,1,0,0,0,0,0,0,0}
+                                ,{0,0,1,0,0,0,0,0,0,0}
+                                ,{0,0,1,1,1,1,1,0,0,0}
+                                ,{0,0,0,0,0,0,0,0,0,0}
+                                ,{0,0,0,0,0,0,0,0,0,0}
+                                };
+                                
+                                
+                                int One[10][10] = 
+                                {{0,0,0,0,0,0,0,0,0,0}
+                                ,{0,0,0,1,1,0,0,0,0,0}
+                                ,{0,0,0,0,1,0,0,0,0,0}
+                                ,{0,0,0,0,1,0,0,0,0,0}
+                                ,{0,0,0,0,1,0,0,0,0,0}
+                                ,{0,0,0,0,1,0,0,0,0,0}
+                                ,{0,0,0,0,1,0,0,0,0,0}
+                                ,{0,0,0,0,1,0,0,0,0,0}
+                                ,{0,0,0,0,0,0,0,0,0,0}
+                                ,{0,0,0,0,0,0,0,0,0,0}
+                                };
+                                
+                                
+                                int Zero[10][10] = 
+                                {{0,0,0,0,0,0,0,0,0,0}
+                                ,{0,0,1,1,1,1,1,0,0,0}
+                                ,{0,0,1,0,0,0,1,0,0,0}
+                                ,{0,0,1,0,0,0,1,0,0,0}
+                                ,{0,0,1,0,0,0,1,0,0,0}
+                                ,{0,0,1,0,0,0,1,0,0,0}
+                                ,{0,0,1,0,0,0,1,0,0,0}
+                                ,{0,0,1,1,1,1,1,0,0,0}
+                                ,{0,0,0,0,0,0,0,0,0,0}
+                                ,{0,0,0,0,0,0,0,0,0,0}
+                                };
+                            
+                                int t = 0, score = 0, player = 5, cd = 0;
+                                int Screen[10][10] = {0}, button1, button2, button3;  
+                                int i, j;
+                                for(i=0; i< 10; i++) for(j=0; j< 10; j++) Screen[i][j] = 1;
+                              
+                                  
+                                printled(Screen);
+                                if(digitalRead(BUTTON1)) button1 = 0;
+                                if(digitalRead(BUTTON2)) button2 = 0;
+                                if(digitalRead(BUTTON3)) button3 = 0;
+                                
+                                if(!digitalRead(BUTTON1)) button1++;
+                                if(!digitalRead(BUTTON2)) button2++;
+                                if(!digitalRead(BUTTON3)) button3++;
+                                if(button1==1 || button2==1 || button3==1){ 
+                                  for(i=0; i< 10; i++) for(j=0; j< 10; j++) Screen[i][j] = 0;
+                                  delay(200);
+                                  printled(Three);
+                                  play(melody3, noteDurations3, 1);
+                                  delay(1000);
+                                  printled(Two);
+                                  play(melody3, noteDurations3, 1);
+                                  delay(1000);
+                                  printled(One);
+                                  play(melody3, noteDurations3, 1);
+                                  delay(1000);
+                                  printled(Zero);
+                                  play(melody4, noteDurations4, 1);
+                                  delay(1000);
+                                  Screen[9][player] = Screen[9][player-1] = Screen[9][player+1] = Screen[8][player] = 1;
+                                  while(1){
+                                    delay(20);
+                                    t=(t+1)%10000;
+                                    if(cd>=0) cd--;
+                                    
+                                    if(Screen[8][player]==3 || Screen[8][player+1]==3 || Screen[8][player-1]==3 || Screen[7][player]==3) break;
+                            
+                                    if(cd< 0) Screen[9][player] = 7;
+                                    printled(Screen);
+                                    if(cd< 0) Screen[9][player] = 1;
+                                    
+                                    if(digitalRead(BUTTON1)) button1 = 0;
+                                    if(digitalRead(BUTTON2)) button2 = 0;
+                                    if(digitalRead(BUTTON3)) button3 = 0;
+                                    
+                                    if(!digitalRead(BUTTON1)) button1++;
+                                    if(!digitalRead(BUTTON2)) button2++;
+                                    if(!digitalRead(BUTTON3)) button3++;
+                                    
+                                     if(button1==1 || button2==1 || button3==1){
+                                      if(button1==1 && player>1){
+                                        Screen[8][player] = 0;
+                                        Screen[8][player-1] = 1;
+                                        Screen[9][player+1] = 0;
+                                        Screen[9][player-2] = 1;
+                                        player--;
+                                      }else if(button3==1 && player< 8){
+                                        Screen[8][player] = 0;
+                                        Screen[8][player+1] = 1;
+                                        Screen[9][player-1] = 0;
+                                        Screen[9][player+2] = 1;
+                                        player++;
+                                      }else if(button2>=1 && cd< 0){
+                                        Screen[7][player] = 2;
+                                        Screen[7][player+1] = 2;
+                                        Screen[7][player-1] = 2;
+                                        cd=100;
+                                        play(melody2, noteDurations2, 1);
+                                      }
+                                    }
+                                    
+                                    if(t%10 == 0){
+                                      for(int i=8; i>=1; i--){
+                                        for(int j=0; j< 10; j++){
+                                          if(Screen[i][j]+Screen[i-1][j] == 6){
+                                            if(Screen[i+1][j]==2){
+                                              Screen[i-1][j] = 0;
+                                              Screen[i][j] = 0;
+                                              Screen[i+1][j] = 0;
+                                            }else{
+                                              Screen[i-1][j] = 0;
+                                              Screen[i+1][j] = 3;
+                                            }
+                                          }
+                                        }
+                                      }
+                                      for(int j=0; j< 10; j++) if(Screen[0][j] == 3) Screen[1][j] = 3;
+                                      for(int j=0; j< 10; j++) if(Screen[8][j]+Screen[9][j] == 6) Screen[8][j] = 0;
+                                      for(int j=0; j< 10; j++) if(Screen[8][j]+Screen[9][j] == 3) Screen[9][j] = 0;       
+                                    }
+                                    if(t%3 == 0){
+                                      for(int i=0; i< 10; i++){
+                                        for(int j=0; j< 10; j++){
+                                          if(Screen[i][j] == 2){
+                                            if(i == 0){
+                                              Screen[i][j] = 0;
+                                            }else if(Screen[i-1][j] == 3){
+                                              Screen[i][j] = 0;
+                                              Screen[i-1][j] = 0;
+                                              Screen[i-2][j] = 0;
+                                            }else{
+                                              Screen[i][j] = 0;
+                                              Screen[i-1][j] = 2;
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                    if(t%12 == 0){
+                                        Screen[7][player] = 2;
+                                        play(melody1, noteDurations1, 1);
+                                    }
+                                    if(t%30 == 0){
+                                      Screen[0][random()%8+1] = 3;
+                                    
+                                     }
+                                  }
+                                  printled(Screen);
+                                  play(melody5, noteDurations5, 5);
+                                  delay(2000);
+                                }
+                            }
+                            
+                            
+                            
+                            void printled(int Screen[10][10]) //螢幕顯示(arduino要改成控制LED) 
+                            {  
+                              int i, j;
+                              for(i=0; i< 10; i++){
+                                for(j=0; j< 10; j++){
+                                  switch(Screen[i][j]){
+                                    case 0:
+                                      leds[10*i+j] = CRGB::Black;
+                                      break;
+                                    case 1:
+                                      leds[10*i+j] = CRGB::Purple;
+                                      break;
+                                    case 2:
+                                      leds[10*i+j] = CRGB::Red;
+                                      break;
+                                    case 3:
+                                      leds[10*i+j] = CRGB::Yellow;
+                                      break;
+                                    case 4:
+                                      leds[10*i+j] = CRGB::Orange;
+                                      break;
+                                    case 5:
+                                      leds[10*i+j] = CRGB::Pink;
+                                      break;
+                                    case 6:
+                                      leds[10*i+j] = CRGB::Gray;
+                                      break;
+                                    case 7:
+                                      leds[10*i+j] = CRGB::Blue;
+                                      break;
+                                    case 8:
+                                      leds[10*i+j] = CRGB::Purple;
+                                      break;
+                                    case 9:
+                                      leds[10*i+j] = CRGB::White;
+                                      break;
+                                    case 10:
+                                      leds[10*i+j] = CRGB::Brown;
+                                      break;
+                                  }
+                                }
+                              }
+                              FastLED.show();
+                            }
+                            
+                    </code>
+                </pre>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section class="text">
+            <p class="top">連絡電話 | 0975573518</p>
+            <p>電子郵件 | e94121038@gs.ncku.edu.tw</p>
+            <p>以下是我的社群軟體帳號</p>
+            <div class="links">
+                <a href="https://www.facebook.com/profile.php?id=100000586092548&mibextid=LQQJ4d"><img src="./Icons/facebook.svg" alt="facebook"></a>
+                <a href="https://www.instagram.com/zlc.__.618?igsh=MTB3c2d3YThqa2Qxcw%3D%3D&utm_source=qr"><img src="./Icons/instagram.svg" alt="instagram"></a>
+                <a href="https://www.youtube.com/@user-chenfeng220"><img src="./Icons/youtube.svg" alt="youtube"></a>
+            </div>
+        </section>
+    </footer>
+</body>
+</html>
